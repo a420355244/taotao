@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.taotao.pojo.TbItem;
 import com.taotao.result.TaotaoResult;
+import com.taotao.service.ItemParamService;
 import com.taotao.service.ItemService;
 
 @Controller
@@ -21,13 +22,13 @@ public class ItemController {
 		TbItem tbItem = itemService.getItemById(itemId);
 		return tbItem;
 	}
+
 	@RequestMapping("/item/save")
 	@ResponseBody
-	public TaotaoResult saveItem(TbItem item, String desc){
-		//添加商品信息
-		itemService.saveItem(item, desc, null);
-		return TaotaoResult.ok();
-
+	public TaotaoResult saveItem(TbItem item, String desc,String itemParams) throws Exception {
+		// 添加商品信息
+		TaotaoResult result = itemService.saveItem(item, desc ,itemParams);
+		return result;
 	}
 
 }

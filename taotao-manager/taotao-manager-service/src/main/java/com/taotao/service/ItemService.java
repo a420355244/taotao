@@ -2,6 +2,7 @@ package com.taotao.service;
 
 import com.taotao.pojo.TbItem;
 import com.taotao.result.EUDataGridResult;
+import com.taotao.result.TaotaoResult;
 
 public interface ItemService {
 	/**
@@ -23,10 +24,10 @@ public interface ItemService {
 
 	/**
 	 * 添加商品
-	 * 
 	 * @param item
 	 * @param desc
 	 * @param itemParams
+	 * @return
 	 */
-	void saveItem(TbItem item, String desc, String itemParams);
+	TaotaoResult saveItem(TbItem item, String desc ,String itemParams) throws Exception ;
 }
